@@ -1,2 +1,0 @@
-/home/mzingerenko/Desktop/MinimalWasm/build/Debug/CMakeFiles/edit_cache.dir
-/home/mzingerenko/Desktop/MinimalWasm/build/Debug/CMakeFiles/rebuild_cache.dir
