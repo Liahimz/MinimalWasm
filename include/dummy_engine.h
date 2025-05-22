@@ -5,10 +5,11 @@
 
 class DummyEngine {
 public:
-    DummyEngine();                 // Constructor
-    ~DummyEngine();                // Destructor
+    DummyEngine();
+    ~DummyEngine();
 
-    void configure(int nThreads);  // Parallel setup
+    void configure(int nThreads);
 
-    int process(const std::vector<uint8_t>& data); // Process (dummy: sum)
+    // Accepts grayscale image (flat vector), width, height
+    std::vector<uint8_t> process(const std::vector<uint8_t>& data, int width, int height);
 };

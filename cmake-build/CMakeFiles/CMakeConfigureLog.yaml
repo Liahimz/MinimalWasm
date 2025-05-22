@@ -1,0 +1,436 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:228 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The target system is: Emscripten - 1 - x86
+      The host system is: Linux - 6.11.0-25-generic - x86_64
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:486 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting C OpenMP compiler info"
+    directories:
+      source: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx"
+      binary: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_C_fopenmplibomp"
+      cached: true
+      stdout: |
+        Change Dir: '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_67626/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_67626.dir/build.make CMakeFiles/cmTC_67626.dir/build
+        gmake[1]: Entering directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx'
+        Building C object CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o
+        /home/mzingerenko/emsdk/upstream/emscripten/emcc   -fopenmp=libomp -v -MD -MT CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o.d -o CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx/OpenMPTryFlag.c
+         /home/mzingerenko/emsdk/upstream/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -mno-bulk-memory -mno-bulk-memory-opt -mno-nontrapping-fptoint -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -fopenmp=libomp -v -MD -MT CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o.d -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx/OpenMPTryFlag.c -o CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o
+        clang version 20.0.0git (https:/github.com/llvm/llvm-project 322eb1a92e6d4266184060346616fa0dbe39e731)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/mzingerenko/emsdk/upstream/bin
+         (in-process)
+         "/home/mzingerenko/emsdk/upstream/bin/clang-20" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -target-feature -bulk-memory -target-feature -bulk-memory-opt -target-feature -nontrapping-fptoint -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx -v -fcoverage-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx -resource-dir /home/mzingerenko/emsdk/upstream/lib/clang/20 -dependency-file CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o.d -MT CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/mzingerenko/emsdk/upstream/lib/clang/20/include -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fopenmp -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o -x c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx/OpenMPTryFlag.c
+        clang -cc1 version 20.0.0git based upon LLVM 20.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/mzingerenko/emsdk/upstream/lib/clang/20/include
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+            2 | #include <omp.h>
+              |          ^~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_67626.dir/build.make:79: CMakeFiles/cmTC_67626.dir/OpenMPTryFlag.c.o] Error 1
+        gmake[1]: Leaving directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-MxTAwx'
+        gmake: *** [Makefile:127: cmTC_67626/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:486 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting C OpenMP compiler info"
+    directories:
+      source: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP"
+      binary: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_C_fopenmplibiomp5"
+      cached: true
+      stdout: |
+        Change Dir: '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7bd9f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_7bd9f.dir/build.make CMakeFiles/cmTC_7bd9f.dir/build
+        gmake[1]: Entering directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP'
+        Building C object CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o
+        /home/mzingerenko/emsdk/upstream/emscripten/emcc   -fopenmp=libiomp5 -v -MD -MT CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o.d -o CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP/OpenMPTryFlag.c
+         /home/mzingerenko/emsdk/upstream/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -mno-bulk-memory -mno-bulk-memory-opt -mno-nontrapping-fptoint -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -fopenmp=libiomp5 -v -MD -MT CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o.d -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP/OpenMPTryFlag.c -o CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o
+        clang version 20.0.0git (https:/github.com/llvm/llvm-project 322eb1a92e6d4266184060346616fa0dbe39e731)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/mzingerenko/emsdk/upstream/bin
+         (in-process)
+         "/home/mzingerenko/emsdk/upstream/bin/clang-20" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -target-feature -bulk-memory -target-feature -bulk-memory-opt -target-feature -nontrapping-fptoint -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP -v -fcoverage-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP -resource-dir /home/mzingerenko/emsdk/upstream/lib/clang/20 -dependency-file CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o.d -MT CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/mzingerenko/emsdk/upstream/lib/clang/20/include -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fopenmp -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o -x c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP/OpenMPTryFlag.c
+        clang -cc1 version 20.0.0git based upon LLVM 20.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/mzingerenko/emsdk/upstream/lib/clang/20/include
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+            2 | #include <omp.h>
+              |          ^~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_7bd9f.dir/build.make:79: CMakeFiles/cmTC_7bd9f.dir/OpenMPTryFlag.c.o] Error 1
+        gmake[1]: Leaving directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-S2RRFP'
+        gmake: *** [Makefile:127: cmTC_7bd9f/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:486 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting C OpenMP compiler info"
+    directories:
+      source: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf"
+      binary: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_C_fopenmp"
+      cached: true
+      stdout: |
+        Change Dir: '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_679ed/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_679ed.dir/build.make CMakeFiles/cmTC_679ed.dir/build
+        gmake[1]: Entering directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf'
+        Building C object CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o
+        /home/mzingerenko/emsdk/upstream/emscripten/emcc   -fopenmp -v -MD -MT CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o.d -o CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf/OpenMPTryFlag.c
+         /home/mzingerenko/emsdk/upstream/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -mno-bulk-memory -mno-bulk-memory-opt -mno-nontrapping-fptoint -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -fopenmp -v -MD -MT CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o.d -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf/OpenMPTryFlag.c -o CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o
+        clang version 20.0.0git (https:/github.com/llvm/llvm-project 322eb1a92e6d4266184060346616fa0dbe39e731)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/mzingerenko/emsdk/upstream/bin
+         (in-process)
+         "/home/mzingerenko/emsdk/upstream/bin/clang-20" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -target-feature -bulk-memory -target-feature -bulk-memory-opt -target-feature -nontrapping-fptoint -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf -v -fcoverage-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf -resource-dir /home/mzingerenko/emsdk/upstream/lib/clang/20 -dependency-file CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o.d -MT CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/mzingerenko/emsdk/upstream/lib/clang/20/include -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fopenmp -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o -x c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf/OpenMPTryFlag.c
+        clang -cc1 version 20.0.0git based upon LLVM 20.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/mzingerenko/emsdk/upstream/lib/clang/20/include
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+            2 | #include <omp.h>
+              |          ^~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_679ed.dir/build.make:79: CMakeFiles/cmTC_679ed.dir/OpenMPTryFlag.c.o] Error 1
+        gmake[1]: Leaving directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-WgqEmf'
+        gmake: *** [Makefile:127: cmTC_679ed/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:486 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting C OpenMP compiler info"
+    directories:
+      source: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ"
+      binary: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_C_Xclang fopenmp"
+      cached: true
+      stdout: |
+        Change Dir: '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8a84d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8a84d.dir/build.make CMakeFiles/cmTC_8a84d.dir/build
+        gmake[1]: Entering directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ'
+        Building C object CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o
+        /home/mzingerenko/emsdk/upstream/emscripten/emcc   -Xclang -fopenmp -v -MD -MT CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o.d -o CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ/OpenMPTryFlag.c
+         /home/mzingerenko/emsdk/upstream/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -mno-bulk-memory -mno-bulk-memory-opt -mno-nontrapping-fptoint -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -Xclang -fopenmp -v -MD -MT CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o.d -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ/OpenMPTryFlag.c -o CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o
+        clang version 20.0.0git (https:/github.com/llvm/llvm-project 322eb1a92e6d4266184060346616fa0dbe39e731)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/mzingerenko/emsdk/upstream/bin
+         (in-process)
+         "/home/mzingerenko/emsdk/upstream/bin/clang-20" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -target-feature -bulk-memory -target-feature -bulk-memory-opt -target-feature -nontrapping-fptoint -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ -v -fcoverage-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ -resource-dir /home/mzingerenko/emsdk/upstream/lib/clang/20 -dependency-file CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o.d -MT CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/mzingerenko/emsdk/upstream/lib/clang/20/include -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -fopenmp -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o -x c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ/OpenMPTryFlag.c
+        clang -cc1 version 20.0.0git based upon LLVM 20.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/mzingerenko/emsdk/upstream/lib/clang/20/include
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+            2 | #include <omp.h>
+              |          ^~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_8a84d.dir/build.make:79: CMakeFiles/cmTC_8a84d.dir/OpenMPTryFlag.c.o] Error 1
+        gmake[1]: Leaving directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-gjNbgQ'
+        gmake: *** [Makefile:127: cmTC_8a84d/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:486 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting CXX OpenMP compiler info"
+    directories:
+      source: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL"
+      binary: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CXX_fopenmplibomp"
+      cached: true
+      stdout: |
+        Change Dir: '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_68485/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_68485.dir/build.make CMakeFiles/cmTC_68485.dir/build
+        gmake[1]: Entering directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL'
+        Building CXX object CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o
+        /home/mzingerenko/emsdk/upstream/emscripten/em++   -fopenmp=libomp -v -std=gnu++17 -MD -MT CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o.d -o CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL/OpenMPTryFlag.cpp
+         "/home/mzingerenko/emsdk/upstream/bin/clang++" -target wasm32-unknown-emscripten -fignore-exceptions -mno-bulk-memory -mno-bulk-memory-opt -mno-nontrapping-fptoint -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -fopenmp=libomp -v -std=gnu++17 -MD -MT CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o.d -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL/OpenMPTryFlag.cpp -o CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o
+        clang version 20.0.0git (https:/github.com/llvm/llvm-project 322eb1a92e6d4266184060346616fa0dbe39e731)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/mzingerenko/emsdk/upstream/bin
+         (in-process)
+         "/home/mzingerenko/emsdk/upstream/bin/clang-20" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -target-feature -bulk-memory -target-feature -bulk-memory-opt -target-feature -nontrapping-fptoint -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL -v -fcoverage-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL -resource-dir /home/mzingerenko/emsdk/upstream/lib/clang/20 -dependency-file CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o.d -MT CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1 -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1 -internal-isystem /home/mzingerenko/emsdk/upstream/lib/clang/20/include -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fopenmp -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fignore-exceptions -fexceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o -x c++ /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL/OpenMPTryFlag.cpp
+        clang -cc1 version 20.0.0git based upon LLVM 20.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1"
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1
+         /home/mzingerenko/emsdk/upstream/lib/clang/20/include
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+            2 | #include <omp.h>
+              |          ^~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_68485.dir/build.make:79: CMakeFiles/cmTC_68485.dir/OpenMPTryFlag.cpp.o] Error 1
+        gmake[1]: Leaving directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-6e1eoL'
+        gmake: *** [Makefile:127: cmTC_68485/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:486 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting CXX OpenMP compiler info"
+    directories:
+      source: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI"
+      binary: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CXX_fopenmplibiomp5"
+      cached: true
+      stdout: |
+        Change Dir: '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0f421/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0f421.dir/build.make CMakeFiles/cmTC_0f421.dir/build
+        gmake[1]: Entering directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI'
+        Building CXX object CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o
+        /home/mzingerenko/emsdk/upstream/emscripten/em++   -fopenmp=libiomp5 -v -std=gnu++17 -MD -MT CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o.d -o CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI/OpenMPTryFlag.cpp
+         "/home/mzingerenko/emsdk/upstream/bin/clang++" -target wasm32-unknown-emscripten -fignore-exceptions -mno-bulk-memory -mno-bulk-memory-opt -mno-nontrapping-fptoint -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -fopenmp=libiomp5 -v -std=gnu++17 -MD -MT CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o.d -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI/OpenMPTryFlag.cpp -o CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o
+        clang version 20.0.0git (https:/github.com/llvm/llvm-project 322eb1a92e6d4266184060346616fa0dbe39e731)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/mzingerenko/emsdk/upstream/bin
+         (in-process)
+         "/home/mzingerenko/emsdk/upstream/bin/clang-20" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -target-feature -bulk-memory -target-feature -bulk-memory-opt -target-feature -nontrapping-fptoint -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI -v -fcoverage-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI -resource-dir /home/mzingerenko/emsdk/upstream/lib/clang/20 -dependency-file CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o.d -MT CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1 -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1 -internal-isystem /home/mzingerenko/emsdk/upstream/lib/clang/20/include -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fopenmp -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fignore-exceptions -fexceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o -x c++ /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI/OpenMPTryFlag.cpp
+        clang -cc1 version 20.0.0git based upon LLVM 20.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1"
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1
+         /home/mzingerenko/emsdk/upstream/lib/clang/20/include
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+            2 | #include <omp.h>
+              |          ^~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_0f421.dir/build.make:79: CMakeFiles/cmTC_0f421.dir/OpenMPTryFlag.cpp.o] Error 1
+        gmake[1]: Leaving directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-ZNSMvI'
+        gmake: *** [Makefile:127: cmTC_0f421/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:486 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting CXX OpenMP compiler info"
+    directories:
+      source: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL"
+      binary: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CXX_fopenmp"
+      cached: true
+      stdout: |
+        Change Dir: '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_31b8b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_31b8b.dir/build.make CMakeFiles/cmTC_31b8b.dir/build
+        gmake[1]: Entering directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL'
+        Building CXX object CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o
+        /home/mzingerenko/emsdk/upstream/emscripten/em++   -fopenmp -v -std=gnu++17 -MD -MT CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o.d -o CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL/OpenMPTryFlag.cpp
+         "/home/mzingerenko/emsdk/upstream/bin/clang++" -target wasm32-unknown-emscripten -fignore-exceptions -mno-bulk-memory -mno-bulk-memory-opt -mno-nontrapping-fptoint -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -fopenmp -v -std=gnu++17 -MD -MT CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o.d -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL/OpenMPTryFlag.cpp -o CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o
+        clang version 20.0.0git (https:/github.com/llvm/llvm-project 322eb1a92e6d4266184060346616fa0dbe39e731)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/mzingerenko/emsdk/upstream/bin
+         (in-process)
+         "/home/mzingerenko/emsdk/upstream/bin/clang-20" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -target-feature -bulk-memory -target-feature -bulk-memory-opt -target-feature -nontrapping-fptoint -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL -v -fcoverage-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL -resource-dir /home/mzingerenko/emsdk/upstream/lib/clang/20 -dependency-file CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o.d -MT CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1 -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1 -internal-isystem /home/mzingerenko/emsdk/upstream/lib/clang/20/include -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fopenmp -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fignore-exceptions -fexceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o -x c++ /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL/OpenMPTryFlag.cpp
+        clang -cc1 version 20.0.0git based upon LLVM 20.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1"
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1
+         /home/mzingerenko/emsdk/upstream/lib/clang/20/include
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+            2 | #include <omp.h>
+              |          ^~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_31b8b.dir/build.make:79: CMakeFiles/cmTC_31b8b.dir/OpenMPTryFlag.cpp.o] Error 1
+        gmake[1]: Leaving directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-EEWPFL'
+        gmake: *** [Makefile:127: cmTC_31b8b/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake:486 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting CXX OpenMP compiler info"
+    directories:
+      source: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR"
+      binary: "/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules;/home/mzingerenko/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CXX_Xclang fopenmp"
+      cached: true
+      stdout: |
+        Change Dir: '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_446ac/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_446ac.dir/build.make CMakeFiles/cmTC_446ac.dir/build
+        gmake[1]: Entering directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR'
+        Building CXX object CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o
+        /home/mzingerenko/emsdk/upstream/emscripten/em++   -Xclang -fopenmp -v -std=gnu++17 -MD -MT CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o.d -o CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR/OpenMPTryFlag.cpp
+         "/home/mzingerenko/emsdk/upstream/bin/clang++" -target wasm32-unknown-emscripten -fignore-exceptions -mno-bulk-memory -mno-bulk-memory-opt -mno-nontrapping-fptoint -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -Xclang -fopenmp -v -std=gnu++17 -MD -MT CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o.d -c /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR/OpenMPTryFlag.cpp -o CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o
+        clang version 20.0.0git (https:/github.com/llvm/llvm-project 322eb1a92e6d4266184060346616fa0dbe39e731)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/mzingerenko/emsdk/upstream/bin
+         (in-process)
+         "/home/mzingerenko/emsdk/upstream/bin/clang-20" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -target-feature -bulk-memory -target-feature -bulk-memory-opt -target-feature -nontrapping-fptoint -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR -v -fcoverage-compilation-dir=/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR -resource-dir /home/mzingerenko/emsdk/upstream/lib/clang/20 -dependency-file CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o.d -MT CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1 -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1 -internal-isystem /home/mzingerenko/emsdk/upstream/lib/clang/20/include -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fignore-exceptions -fexceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -fopenmp -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o -x c++ /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR/OpenMPTryFlag.cpp
+        clang -cc1 version 20.0.0git based upon LLVM 20.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1"
+        ignoring nonexistent directory "/home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1
+         /home/mzingerenko/emsdk/upstream/lib/clang/20/include
+         /home/mzingerenko/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        /home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+            2 | #include <omp.h>
+              |          ^~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_446ac.dir/build.make:79: CMakeFiles/cmTC_446ac.dir/OpenMPTryFlag.cpp.o] Error 1
+        gmake[1]: Leaving directory '/home/mzingerenko/Desktop/MinimalWasm/cmake-build/CMakeFiles/CMakeScratch/TryCompile-x80OJR'
+        gmake: *** [Makefile:127: cmTC_446ac/fast] Error 2
+        
+      exitCode: 2
+...
