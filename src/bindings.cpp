@@ -5,6 +5,10 @@
 using namespace emscripten;
 
 EMSCRIPTEN_BINDINGS(my_dummy_engine) {
+    value_object<ProcessResult>("ProcessResult")
+        .field("image", &ProcessResult::image)
+        .field("width", &ProcessResult::width)
+        .field("height", &ProcessResult::height);
     class_<DummyEngine>("DummyEngine")
         .constructor<>()
         .function("configure", &DummyEngine::configure)

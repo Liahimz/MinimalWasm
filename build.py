@@ -49,14 +49,18 @@ def main():
     shutil.copy2(wasm_bin_path, os.path.join(BUILD_DIR, WASM_BIN))
 
     # Copy JS, HTML, and serve.json files
-    for f in SRC_FILES:
-        if os.path.exists(f):
-            shutil.copy2(f, os.path.join(BUILD_DIR, f))
-        else:
-            print(f"Warning: file {f} not found, skipping.")
+    SAMPLES_DIR = "samples"
+    if os.path.exists(SAMPLES_DIR):
+        for item in os.listdir(SAMPLES_DIR):
+            s = os.path.join(SAMPLES_DIR, item)
+            d = os.path.join(BUILD_DIR, item)
+            if os.path.isdir(s):
+                shutil.copytree(s, d)
+            else:
+                shutil.copy2(s, d)
 
     print("\n✅ Build complete. To serve, run:")
-    print(f"  cd {BUILD_DIR} && npx serve --config serve.json\n")
+    print(f"  cd {BUILD_DIR} && npx serve\n")
 
 if __name__ == "__main__":
     main()

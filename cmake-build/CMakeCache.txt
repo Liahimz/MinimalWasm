@@ -203,18 +203,6 @@ EMSCRIPTEN_FORCE_COMPILERS:BOOL=ON
 // If disabled (default), UNIX ar archives (.a) are generated.
 EMSCRIPTEN_GENERATE_BITCODE_STATIC_LIBRARIES:BOOL=OFF
 
-//CXX compiler flags for OpenMP parallelization
-OpenMP_CXX_FLAGS:STRING=NOTFOUND
-
-//CXX compiler libraries for OpenMP parallelization
-OpenMP_CXX_LIB_NAMES:STRING=NOTFOUND
-
-//C compiler flags for OpenMP parallelization
-OpenMP_C_FLAGS:STRING=NOTFOUND
-
-//C compiler libraries for OpenMP parallelization
-OpenMP_C_LIB_NAMES:STRING=NOTFOUND
-
 //Value Computed by CMake
 dummy_engine_wasm_BINARY_DIR:STATIC=/home/mzingerenko/Desktop/MinimalWasm/cmake-build
 
@@ -358,28 +346,4 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //If true, we are targeting Emscripten output.
 EMSCRIPTEN:INTERNAL=1
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_CXX_Xclang fopenmp:INTERNAL=FALSE
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_CXX_fopenmp:INTERNAL=FALSE
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_CXX_fopenmplibiomp5:INTERNAL=FALSE
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_CXX_fopenmplibomp:INTERNAL=FALSE
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_C_Xclang fopenmp:INTERNAL=FALSE
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_C_fopenmp:INTERNAL=FALSE
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_C_fopenmplibiomp5:INTERNAL=FALSE
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_C_fopenmplibomp:INTERNAL=FALSE
-//ADVANCED property for variable: OpenMP_CXX_FLAGS
-OpenMP_CXX_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OpenMP_CXX_LIB_NAMES
-OpenMP_CXX_LIB_NAMES-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OpenMP_C_FLAGS
-OpenMP_C_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OpenMP_C_LIB_NAMES
-OpenMP_C_LIB_NAMES-ADVANCED:INTERNAL=1
 

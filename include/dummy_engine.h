@@ -3,6 +3,12 @@
 #include <vector>
 #include <cstdint>
 
+struct ProcessResult {
+    std::vector<uint8_t> image;
+    int width;
+    int height;
+};
+
 class DummyEngine {
 public:
     DummyEngine();
@@ -11,5 +17,5 @@ public:
     void configure(int nThreads);
 
     // Accepts grayscale image (flat vector), width, height
-    std::vector<uint8_t> process(const std::vector<uint8_t>& data, int width, int height);
+    ProcessResult process(const std::vector<uint8_t>& data, int width, int height, int channels, int targetWidth);
 };

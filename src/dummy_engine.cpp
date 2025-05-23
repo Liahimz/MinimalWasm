@@ -2,63 +2,84 @@
 #include "dummy_engine.h"
 #include <tbb/parallel_for.h>
 #include <tbb/blocked_range.h>
-#include <opencv2/opencv.hpp>
+#include "image_proc.h"
+#include <iostream>
 
 DummyEngine::DummyEngine() {}
 DummyEngine::~DummyEngine() {}
 
 void DummyEngine::configure(int nThreads) {
-    omp_set_num_threads(nThreads);
+    std::cout << "Configure" << std::endl;
 }
 
-std::vector<uint8_t> DummyEngine::process(const std::vector<uint8_t>& data, int width, int height) {
-    // Input: flat grayscale image [size = width * height]
-    cv::Mat src(height, width, CV_8UC1, const_cast<uint8_t*>(data.data()));
+ProcessResult DummyEngine::process(const std::vector<uint8_t>& data, int width, int height, int channels, int targetWidth) {
+    // 1. Grayscale conversion
+    int size = width * height;
+    std::vector<uint8_t> gray(size);
+    to_grayscale(data.data(), gray.data(), width, height, channels);
 
-    // Prepare output image
-    cv::Mat dst(height, width, CV_8UC1);
+    // 2. Rescale
+    
+    int new_w = targetWidth;
+    int new_h = static_cast<int>(height * (new_w / static_cast<float>(width)));
+    std::vector<uint8_t> gray_scaled;
 
-    // Tile splitting
-    int x_split = width / 2;
-    int y_split = height / 2;
 
-    // Coordinates for 4 tiles: (x0,y0,x1,y1)
-    std::vector<cv::Rect> tiles = {
-        {0,           0,           x_split,       y_split},
-        {x_split,     0,           width-x_split, y_split},
-        {0,           y_split,     x_split,       height-y_split},
-        {x_split,     y_split,     width-x_split, height-y_split}
+    if (new_w > width) {
+        new_w = width;
+        new_h = height;
+        gray_scaled.resize(width * height);
+        gray_scaled = std::move(gray);
+    } else {
+        gray_scaled.resize(new_w * new_h);
+        rescale(gray.data(), gray_scaled.data(), width, height, new_w, new_h);
+    }
+
+
+    // 3. Split into 4 tiles
+    int x_split = new_w / 2;
+    int y_split = new_h / 2;
+    std::vector<std::tuple<int, int, int, int>> tiles = {
+        {0, 0, x_split, y_split},
+        {x_split, 0, new_w - x_split, y_split},
+        {0, y_split, x_split, new_h - y_split},
+        {x_split, y_split, new_w - x_split, new_h - y_split}
     };
 
-    // Store output tiles here
-    std::vector<cv::Mat> results(4);
+    std::vector<std::vector<uint8_t>> results(4);
+    tbb::parallel_for(0, 4, [&](int i){
+        auto [x0, y0, w, h] = tiles[i];
+        std::vector<uint8_t> tile(w * h);
 
-    std::vector<cv::Mat> results(4);
-    tbb::parallel_for(
-        tbb::blocked_range<int>(0, 4),
-        [&](const tbb::blocked_range<int>& range) {
-            for (int i = range.begin(); i != range.end(); ++i) {
-                cv::Mat tile = src(tiles[i]).clone(); /
-                // 1. Binarize (Otsu)
-                cv::Mat bin;
-                cv::threshold(tile, bin, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
+        // Copy tile data from scaled image
+        for (int y = 0; y < h; ++y)
+            std::copy_n(gray_scaled.data() + (y0 + y) * new_w + x0, w, tile.data() + y * w);
 
-                // 2. Morphology open
-                cv::Mat morph;
-                cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT, {3, 3});
-                cv::morphologyEx(bin, morph, cv::MORPH_OPEN, kernel);
+        std::vector<uint8_t> bin(w * h), morph(w * h);
+        threshold(tile.data(), bin.data(), w, h, 200);
+        morph_open(bin.data(), morph.data(), w, h);
 
-                results[i] = morph;
-            }
-        }
-    );
+        results[i] = std::move(morph);
+    });
 
-    // Stitch result tiles into dst
-    results[0].copyTo(dst(cv::Rect(0,         0,          tiles[0].width, tiles[0].height)));
-    results[1].copyTo(dst(cv::Rect(x_split,   0,          tiles[1].width, tiles[1].height)));
-    results[2].copyTo(dst(cv::Rect(0,         y_split,    tiles[2].width, tiles[2].height)));
-    results[3].copyTo(dst(cv::Rect(x_split,   y_split,    tiles[3].width, tiles[3].height)));
+    // 4. Stitch processed tiles back together
+    std::vector<uint8_t> dst(new_w * new_h, 0);
+    for (int i = 0; i < 4; ++i) {
+        auto [x0, y0, w, h] = tiles[i];
+        for (int y = 0; y < h; ++y)
+            std::copy_n(results[i].data() + y * w, w, dst.data() + (y0 + y) * new_w + x0);
+    }
 
-    // Return as flat vector
-    return std::vector<uint8_t>(dst.data, dst.data + dst.total());
+    // 5. Optionally: debug print some output
+    for (int i = 0; i < 5; ++i)
+        std::cout << "Pixels " << static_cast<int>(dst[i]) << std::endl;
+
+    // 6. Return the scaled and processed image (client code needs to expect new_w x new_h image)
+    // return dst;
+
+    ProcessResult result;
+    result.image = std::move(dst);
+    result.width = new_w;
+    result.height = new_h;
+    return result;
 }
