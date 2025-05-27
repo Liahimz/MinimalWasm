@@ -14,14 +14,39 @@ SRC_FILES = [
 WASM_JS = "idengine_wasm.js"
 WASM_BIN = "idengine_wasm.wasm"
 
+TBB_DIR = "thirdparty/tbb"
+TBB_BUILD = os.path.join(TBB_DIR, "build-emscripten")
+
 def run_cmd(cmd, cwd=None):
     print(f"Running: {' '.join(cmd)}")
     res = subprocess.run(cmd, cwd=cwd)
     if res.returncode != 0:
         print("Error running command:", ' '.join(cmd))
         sys.exit(res.returncode)
+        
+def check_and_build_tbb():
+    # Check if build-emscripten exists and is non-empty
+    if os.path.isdir(TBB_BUILD) and os.listdir(TBB_BUILD):
+        print(f"TBB already built in {TBB_BUILD}. Skipping TBB build.")
+        return
+
+    print(f"Building TBB in {TBB_BUILD} ...")
+    if not os.path.exists(TBB_BUILD):
+        os.makedirs(TBB_BUILD)
+    run_cmd([
+        "emcmake", "cmake", "..",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DTBB_TEST=OFF", "-DTBB_STRICT=OFF",
+        "-DTBB_EXAMPLES=OFF", "-DTBB4PY_BUILD=OFF"
+    ], cwd=TBB_BUILD)
+    run_cmd(["emmake", "make", "-j", "8"], cwd=TBB_BUILD)
+    print("TBB build complete.\n")      
+
 
 def main():
+    #build tbb for emiscripten
+    check_and_build_tbb()
+    
     # Clean build dir
     if os.path.exists(BUILD_DIR):
         shutil.rmtree(BUILD_DIR)
