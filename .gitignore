@@ -33,3 +33,4 @@
 
 /build
 /cmake-build
+/thirdparty/tbb/build-emscripten
