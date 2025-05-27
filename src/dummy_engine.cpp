@@ -1,7 +1,6 @@
 // dummy_engine.cpp
 #include "dummy_engine.h"
-#include <tbb/parallel_for.h>
-#include <tbb/blocked_range.h>
+#include "parallel_tools.h"
 #include "image_proc.h"
 #include <iostream>
 
@@ -47,6 +46,10 @@ ProcessResult DummyEngine::process(const std::vector<uint8_t>& data, int width, 
     };
 
     std::vector<std::vector<uint8_t>> results(4);
+
+    auto& arena = TbbInitializer::GetArena();
+
+    arena.execute([&] {
     tbb::parallel_for(0, 4, [&](int i){
         auto [x0, y0, w, h] = tiles[i];
         std::vector<uint8_t> tile(w * h);
@@ -60,6 +63,7 @@ ProcessResult DummyEngine::process(const std::vector<uint8_t>& data, int width, 
         morph_open(bin.data(), morph.data(), w, h);
 
         results[i] = std::move(morph);
+        });
     });
 
     // 4. Stitch processed tiles back together

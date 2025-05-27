@@ -84,6 +84,7 @@
     "format": "cpp",
     "stdfloat": "cpp",
     "__nullptr": "cpp",
-    "ios": "cpp"
+    "ios": "cpp",
+    "locale": "cpp"
   }
 }

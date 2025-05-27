@@ -18,6 +18,9 @@ let readyPromise = SmartIDEngine({
   engineInstance = new Module.DummyEngine();
   engineInstance.configure(4);
   moduleObject = Module;
+
+  // Module._start_tbb_session();
+
   return Module;
 });
 
@@ -40,8 +43,12 @@ onmessage = async function(msg) {
     for (let i = 0; i < arr.length; ++i) {
         cppVec.push_back(arr[i]);
     }
+
+    moduleObject._stop_keepalive_mainloop();
     // console.log(arrForCpp instanceof Uint8Array, Array.isArray(arrForCpp));
     let resultVec = engineInstance.process(cppVec, width, height, channels, targetWidth);
+
+    
     let outArr = [];
     for (let i = 0; i < resultVec.image.size(); ++i) {
         outArr.push(resultVec.image.get(i)); // .get() or .at() depending on embind
@@ -50,5 +57,6 @@ onmessage = async function(msg) {
 
     console.log(outImage, outImage.buffer);
     postMessage({ requestType: "result", outImage, width: resultVec.width, height: resultVec.height }, [outImage.buffer]);
+    moduleObject._start_keepalive_mainloop();
   }
 };
