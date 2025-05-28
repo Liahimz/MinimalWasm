@@ -5,8 +5,24 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(TBB_ROOT ${CMAKE_SOURCE_DIR}/thirdparty/tbb)
 include_directories(${TBB_ROOT}/include)
-set(TBB_LIB_DIR ${CMAKE_SOURCE_DIR}/thirdparty/tbb/build-emscripten/clang_20.0_cxx11_32_release)
+# set(TBB_LIB_DIR ${CMAKE_SOURCE_DIR}/thirdparty/tbb/build-emscripten/clang_20.0_cxx11_32_release)
 # link_directories(${TBB_LIB_DIR})
+
+# Set base directory
+set(TBB_BUILD_BASE "${CMAKE_SOURCE_DIR}/thirdparty/tbb/build-emscripten")
+
+# Glob for the correct build output dir (matches any clang version)
+file(GLOB TBB_BUILD_DIRS "${TBB_BUILD_BASE}/clang_*")
+
+list(LENGTH TBB_BUILD_DIRS _tbb_dir_count)
+if(_tbb_dir_count EQUAL 0)
+    message(FATAL_ERROR "No TBB build directory found in ${TBB_BUILD_BASE}")
+endif()
+
+# Use the first one found (if multiple: pick latest or warn)
+list(GET TBB_BUILD_DIRS 0 TBB_LIB_DIR)
+
+message(STATUS "Using TBB library dir: ${TBB_LIB_DIR}")
 
 
 
