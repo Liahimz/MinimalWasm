@@ -42,7 +42,7 @@ This is a minimal WebAssembly app that demonstrates parallel image processing in
   Then open `sample.html` in your browser (for example, [http://localhost:3000/sample.html](http://localhost:3000/sample.html)).
 
 ## Project Structure
-
+  ```
   .
   ├── build.py          # Build script
   ├── CMakeLists.txt
@@ -62,7 +62,7 @@ This is a minimal WebAssembly app that demonstrates parallel image processing in
   ├── thirdparty/
   │   └── tbb/          # TBB library (with WASM build)
   └── ...
-
+  ```
 ## Notes
 
 - The main C++ function is exposed via Embind and can be called from JavaScript.
